@@ -2,18 +2,24 @@ public class Task10 {
     public static void main(String[] args) {
         //10)Write a java program to find the second largest number in the array?
 
-        int[] arr = {11, 22, 33};
+        int[][] arr = {{11, 22, 33, 98, 342},
+                       {24, 56, 86, 45, 123},
+                       {54, 66, 41, 32, 865}};
 
+        int largest=arr[0][0];
+        int secondLargest=arr[0][0];
         for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < i; j++) {
-                if (arr[0] > arr[1] && arr[0] > arr[2]) {
-                    System.out.println("Number is the largest " + arr[0]);
+            for (int j = 0; j < arr[i].length; j++) {
+                if (arr[i][j]>largest){
+                    secondLargest=largest;
+                    largest=arr[i][j];
+                } else if (arr[i][j]>secondLargest) {
+                    secondLargest=arr[i][j];
+
                 }
-                if (arr[1] > arr[0] && arr[1] > arr[2]) {
-                    System.out.println("Number 2 is largest " + arr[1]);
+
+            }
                 }
-                if (arr[2] > arr[0] && arr[2] > arr[1]) {
-                    System.out.println("Number 3 is largest " + arr[2]);
-                }
-            }}}}
-//it was first largest number lol
+        System.out.println("The largest number is " +largest);
+        System.out.println("The second largest number is " +secondLargest);
+            }}
